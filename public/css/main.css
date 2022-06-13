@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(244, 245, 247);
+    opacity: 1;
+}
+
+#formMulta {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+label {
+    color: rgba(55, 65, 81);
+    opacity: 1;
+    font-size: 0.875rem;
+}
+
+#formMulta > h3:nth-child(6) {
+    font-size: 1rem;
+}

@@ -1,0 +1,27 @@
+.main {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    padding: 2rem;
+    max-width: 44rem;
+    margin-inline: auto;
+}
+
+.logo_cbmma {
+    width: 136px;
+    height: 100px;
+    margin-bottom: -20px;
+}
+
+.card-multa {
+    text-align: center;
+}
+
+.multa-car-title{
+    font-size: 1.3rem;
+    margin-bottom: 0;
+}
+
+.title-multa{
+    align-items: center;
+}
