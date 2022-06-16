@@ -6,7 +6,7 @@ const port = 8080
 app.use(express.static('public'))
 
 // ROUTES IMPORT
-const router = require('./config/routes')
+const router = require('../../config/routes')
 
 
 app.set('view engine', 'ejs')

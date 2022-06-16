@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const multa = require('../calculoMulta')
+const multa = require('../public/js/calculoMulta')
 
 // Get the Home Page (form)
 router.get('/', function(req, res) {
