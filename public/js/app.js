@@ -23,4 +23,4 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(router)
 
 // LISTEN SERVER PORT 
-app.listen(port, () => console.log(`Rodando na porta: ${port}`))
+app.listen(port, () => console.log('running'))

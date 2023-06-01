@@ -2,7 +2,7 @@
 function Multa(infra_leve, infra_media, infra_grave, infra_gravissima, fator_risco_empresa, fator_area_empresa){
 
     // Valor Base Bombeiro Militar
-    const vbbm = 30.42
+    const vbbm = 32.21
 
     // Fator de Risco
     const fator_risco = [1, 1.1, 1.2]

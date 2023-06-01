@@ -12,18 +12,15 @@ router.get('/', function(req, res) {
 // Page generation Task with  method POST
 router.post('/multa', function(req, res) {
     const body = req.body
-    console.log(body.inputInfraLeve)
 
     // MULTA
-   const calcMulta = multa(body.inputInfraLeve, body.inputInfraMedia, body.inputInfraGrave, body.inputInfraGravissima, body.inputRisco, body.inputArea)
+    const calcMulta = multa(body.inputInfraLeve, body.inputInfraMedia, body.inputInfraGrave, body.inputInfraGravissima, body.inputRisco, body.inputArea)
 
     const valorMulta = calcMulta.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})
 
     const formMulta = body
     
     formMulta.multa_calculada = valorMulta
-    console.log(formMulta)
-    
 
     res.render('multa', { data : formMulta})
 })
