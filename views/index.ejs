@@ -1,141 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
+    <title>App Multa DAT</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
-  <title>App Multa DAT</title>
-</head>
-
-<body>
-  <article class="main">
-    <form id="formMulta" action="/multa" method="POST">
-      <div class="form-group">
-        <label for="inputEmpresa">Empresa</label>
-        <input type="text" class="form-control" id="inputEmpresa" name="inputEmpresa">
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <label for="cep">CEP</label>
-          <input type="text" class="form-control" id="cep" name="inputCEP" maxlength="9" data-js="cep">
+  <body>
+    <article class="main">
+      <form id="formMulta" action="/multa" method="POST">
+        <div class="form-group">
+          <label for="inputEmpresa">Empresa</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputEmpresa"
+            name="inputEmpresa"
+          />
         </div>
-        <div class="form-group col-md-7">
-          <label for="logradouro">Endereço</label>
-          <input type="text" class="form-control" id="logradouro" name="inputAddress">
-        </div>
-        <div class="form-group col-md-2">
-          <label for="inputNumberHome">Nº</label>
-          <input type="text" class="form-control" id="inputNumberHome" name="inputNumberHome">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="localidade">Cidade</label>
-          <input type="text" class="form-control" id="localidade" name="inputCity">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="uf">Estado</label>
-          <input type="text" class="form-control" id="uf" name="inputState" readonly>
-        </div>
-        
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="inputRisco">Risco</label>
-          <select id="inputRisco" class="form-control" name="inputRisco">
-            <option selected>Escolher...</option>
-            <option value="0">Risco Baixo (até 300 MJ/m²)</option>
-            <option value="1">Risco Médio (Entre 300 e 1.200 MJ/m²)</option>
-            <option value="2">Risco Alto (Acima de 1.200 MJ/m²)</option>
-          </select>
-        </div>
-        <div class="form-group col-md-6">
-          <label for="inputArea">Área Edificada</label>
-          <select id="inputArea" class="form-control" name="inputArea">
-            <option selected>Escolher...</option>
-            <option value="0">até 200</option>
-            <option value="1">(200 > área ≤ 500)</option>
-            <option value="2">(500 > área ≤ 750)</option>
-            <option value="3">(750 > área ≤ 1.500)</option>
-            <option value="4">(1.500 > área ≤ 2.500)</option>
-            <option value="5">(2.500 > área ≤ 3.500)</option>
-            <option value="6">(3.500 > área ≤ 5.000)</option>
-            <option value="7">(5.000 > área ≤ 7.000)</option>
-            <option value="8">(7.000 > área ≤ 10.000)</option>
-            <option value="9">(10.000 > área ≤ 20.000)</option>
-            <option value="10">(20.00 > área ≤ 30.000)</option>
-            <option value="11">(30.000 > área ≤ 40.000)</option>
-            <option value="12">(40.000 > área ≤ 50.000)</option>
-            <option value="13">(50.000 > área ≤ 60.000)</option>
-            <option value="14">(60.000 > área ≤ 80.000)</option>
-            <option value="15">(80.000 > área ≤ 100.000)</option>
-            <option value="16">(área > 100.000)</option>
-          </select>
-        </div>
-      </div>
-      <br>
-      <h3>QUANTIDADE DE INFRAÇÕES</h3>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <label for="inputAddress">Leves</label>
-          <input type="number" class="form-control" id="inputInfraLeve" name="inputInfraLeve">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="inputNumberHome">Médias</label>
-          <input type="number" class="form-control" id="inputInfraMedia" name="inputInfraMedia">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="inputNumberHome">Graves</label>
-          <input type="number" class="form-control" id="inputInfraGrave" name="inputInfraGrave">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="inputNumberHome">Gravíssimas</label>
-          <input type="number" class="form-control" id="inputInfraGravissima" name="inputInfraGravissima">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <!-- Button -->
-        <button type="submit" class="btn btn-primary" id="bntCalcular">
-          Calcular
-        </button>
-      </div>
-
-      <!-- Modal -->
-      <!-- <div class="modal fade" id="ModalCentralizado" tabindex="-1" role="dialog"
-        aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="TituloModalCentralizado">Notificação de Multa</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              A Empresa fica multada no Valor de R$ 1.000,00
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="button" class="btn btn-primary">Imprimir Multa</button>
-            </div>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="cep">CEP</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cep"
+              name="inputCEP"
+              maxlength="9"
+              data-js="cep"
+            />
+          </div>
+          <div class="form-group col-md-7">
+            <label for="logradouro">Endereço</label>
+            <input
+              type="text"
+              class="form-control"
+              id="logradouro"
+              name="inputAddress"
+            />
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputNumberHome">Nº</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputNumberHome"
+              name="inputNumberHome"
+            />
           </div>
         </div>
-      </div> -->
-    </form>
-  </article>
-  
-  <script src="../js/app.js" type="module"></script>
-  <script src="../js/cepApi.js" type="module"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="localidade">Cidade</label>
+            <input
+              type="text"
+              class="form-control"
+              id="localidade"
+              name="inputCity"
+            />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="uf">Estado</label>
+            <input
+              type="text"
+              class="form-control"
+              id="uf"
+              name="inputState"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputRisco">Risco</label>
+            <select id="inputRisco" class="form-control" name="inputRisco">
+              <option selected>Escolher...</option>
+              <option value="0">Risco Baixo (até 300 MJ/m²)</option>
+              <option value="1">Risco Médio (Entre 300 e 1.200 MJ/m²)</option>
+              <option value="2">Risco Alto (Acima de 1.200 MJ/m²)</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputArea">Área Edificada</label>
+            <select id="inputArea" class="form-control" name="inputArea">
+              <option selected>Escolher...</option>
+              <option value="0">até 200</option>
+              <option value="1">(200 > área ≤ 500)</option>
+              <option value="2">(500 > área ≤ 750)</option>
+              <option value="3">(750 > área ≤ 1.500)</option>
+              <option value="4">(1.500 > área ≤ 2.500)</option>
+              <option value="5">(2.500 > área ≤ 3.500)</option>
+              <option value="6">(3.500 > área ≤ 5.000)</option>
+              <option value="7">(5.000 > área ≤ 7.000)</option>
+              <option value="8">(7.000 > área ≤ 10.000)</option>
+              <option value="9">(10.000 > área ≤ 20.000)</option>
+              <option value="10">(20.00 > área ≤ 30.000)</option>
+              <option value="11">(30.000 > área ≤ 40.000)</option>
+              <option value="12">(40.000 > área ≤ 50.000)</option>
+              <option value="13">(50.000 > área ≤ 60.000)</option>
+              <option value="14">(60.000 > área ≤ 80.000)</option>
+              <option value="15">(80.000 > área ≤ 100.000)</option>
+              <option value="16">(área > 100.000)</option>
+            </select>
+          </div>
+        </div>
+        <br />
+        <h3>QUANTIDADE DE INFRAÇÕES</h3>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputAddress">Leves</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputInfraLeve"
+              name="inputInfraLeve"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputNumberHome">Médias</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputInfraMedia"
+              name="inputInfraMedia"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputNumberHome">Graves</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputInfraGrave"
+              name="inputInfraGrave"
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputNumberHome">Gravíssimas</label>
+            <input
+              type="number"
+              class="form-control"
+              id="inputInfraGravissima"
+              name="inputInfraGravissima"
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <!-- Button -->
+          <button type="submit" class="btn btn-primary" id="bntCalcular">
+            Calcular
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <script src="../js/app.js" type="module"></script>
+    <script src="../js/cepApi.js" type="module"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
